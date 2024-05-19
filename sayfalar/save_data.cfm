@@ -1,21 +1,21 @@
-<!--- JSON verisini al --->
+
 <cfparam name="form.data" default="">
 <cfset jsonData = DeserializeJSON(form.data)>
 
 <!--- Veritabanına ekleme işlemi --->
 <cftry>
     <cfloop array="#jsonData#" index="item">
-        <!--- Her öğe için fiyat anahtarını kontrol et ve yoksa varsayılan bir değer ata --->
+        
         <cfif not structKeyExists(item, "fiyat")>
-            <cfset item.fiyat = 0> <!--- Varsayılan bir değer atayın. Örneğin, 0. --->
+            <cfset item.fiyat = 0>
         </cfif>
 
         <cfif not structKeyExists(item, "renk")>
-            <cfset item.renk = ''> <!--- Varsayılan bir değer atayın. Örneğin, 0. --->
+            <cfset item.renk = ''>
         </cfif>
 
         <cfif not structKeyExists(item, "kapasite")>
-            <cfset item.kapasite = ''> <!--- Varsayılan bir değer atayın. Örneğin, 0. --->
+            <cfset item.kapasite = ''> 
         </cfif>
 
         <!--- Veritabanı işlemi --->
